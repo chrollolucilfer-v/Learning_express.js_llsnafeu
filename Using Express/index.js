@@ -114,10 +114,71 @@ const port = 8000;
 // 5. import router
 // 6. use the (app.use) built in middleware which provides your routes.
 
-import students from "./Routes/student.js";
-import teachers from "./Routes/teacher.js";
+// import students from "./Routes/student.js";
+// import teachers from "./Routes/teacher.js";
 
-app.use("/students", students);
-app.use("/teachers", teachers);
+// app.use("/students", students);
+// app.use("/teachers", teachers);
+
+// Route Parameters
+// ecommerce / products / iphone /:id
+//
+
+// app.get("/student/delete/:id", (req, res) => {
+//   const { id } = req.params;
+//   res.send(`iPHONE`);
+//   // res.send(req.params.id);
+// });
+
+// THIS IS HOW WE CAPTURE SPECIFIC DATA FROM SPECIFIC FILE
+
+// CONTROLLERS IN EXPRESS
+// CAN GROUP RELATED REQUEST HANDLING LOGIC, SEPRATELY AND INSTEAD
+// OF DEFINING ALL OUF YOUR REQUEST AS A CALLBACK OR SEPRATE FILE
+// YOU MAY USE CONTROLLER
+
+// Query String ? &
+// app.get("/product", (req, res) => {
+// const {category, id} = req.query
+
+// res.send(`Product Category: ${category} & Product ID: ${id}`)
+// });
+
+// import products from "./products.js";
+
+// import userCredential from "./middleware/logs.js";
+// // function userCredential(req, res, next) {
+// //   console.log("usename; (alex)");
+// //   console.log("email: (123)");
+// //   next()
+// // }
+
+// // app.get("/products", (req, res) => {
+// //   res.json(products);
+// // });
+
+// app.use(userCredential)
+// app.get("/", (req, res) => {
+// //  -Request - middleware - response/
+// res.send("<h1> Hello Admin</h1>")
+// });
+
+import path from "path";
+// app.use(express.static('./public'))
+
+// // joining static files
+// app.get('/', (req,res)=>{
+//     res.sendFile(path.join(process.cwd), './public/index.html')
+// })
+
+app.set("view engine", "ejs");
+app.use(express.static(join(process.cwd(),"public"))
+
+// template engine
 
 app.listen(port, () => console.log("First Express Use"));
+
+// what is a middle ware in express
+// javascript method that will be passing between req, res
+// takes 3 parameters
+// middle ware takes 3 parametee
